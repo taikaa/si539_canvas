@@ -1,0 +1,10 @@
+canvas {
+			border: 1px solid black;
+			width: : 80%;
+			height: 80%;
+		}
+
+
+@media screen and (max-width:780px) {
+
+}
