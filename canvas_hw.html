@@ -15,7 +15,7 @@
 </head>
 <body>
 	<h1>Canvas</h1>
-	<canvas id="canvas" width="500" height="500">
+	<canvas id="canvas">
 		This is where a canvas should be. If not availalbe, use a different browser.
 		
 	</canvas>
@@ -70,6 +70,14 @@
 			ctx.arc(x, y, radius, 0, 2*Math.PI);
 			ctx.fill();
 		}
+		// adding responsive change size 
+
+		function sizeCanvas() {
+			canvas.width = window.innerWidth * 0.8;
+			canvas.height = window.innerHeight * 0.8;
+		}
+		window.addEventListener('resize', sizeCanvas);
+		window.addEventListener('load', sizeCanvas);
 // for mobile ========
 //start mvmt 
 	// var xMobile, yMobile;
