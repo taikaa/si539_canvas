@@ -5,20 +5,15 @@
 	<title>Canvas HW</title>
 	<meta name = 'viewport' content='width=device-width, initial-scale=1, minimum-scale=1'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-<!-- 	<style type="text/css">
-		canvas {
-			border: 1px solid black;
-			width: 80vh;
-			height: 80vh;
-		}
-	</style> -->
+
 </head>
 <body>
-	<!-- <h1>Canvas</h1> -->
+
 	<canvas id="canvas">
 		This canvas displays drawing in red on a blank white canvas. If it is not rendering, try switching browser.
 		
 	</canvas>
+	<input type="color" id="colorPicker">
 	<script>
 		var canvas = document.querySelector('canvas');
 		var ctx = canvas.getContext('2d');
@@ -70,8 +65,12 @@
 
 			draw()
 		})
+// added color picker 
+		document.querySelector("#colorPicker").addEventListener('change', function(ev){
+			color = ev.target.value;
+		})
 
-		// adding responsive change size 
+// adding responsive change size so that canvas is always 80%
 
 		function sizeCanvas() {
 			canvas.width = window.innerWidth * 0.8;
@@ -80,12 +79,6 @@
 		window.addEventListener('resize', sizeCanvas);
 		window.addEventListener('load', sizeCanvas);
 // for mobile ========
-//start mvmt 
-	// var xMobile, yMobile;
-	// canvas.addEventListener("touchstart", function(ev){
-	// 	x = ev.touches[0].pageX;
-	// 	y = ev.touches[0].pageY;
-	// })
 
 
 	canvas.addEventListener("touchmove", function(ev) {
@@ -96,7 +89,7 @@
 		y = newY;
 		draw();
 	});
-
+// when turn iphone then clear canvas 
 	window.addEventListener("orientationchange", function(ev)
 	{
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
